@@ -28,7 +28,6 @@ public class ParseCurrencyTask {
             e.printStackTrace();
         }
         JsonNode nameNode = rootNode.path("Valute");
-
         return StreamSupport
                 .stream(Spliterators
                         .spliteratorUnknownSize(nameNode.fields(), Spliterator.ORDERED), false)
@@ -40,7 +39,6 @@ public class ParseCurrencyTask {
                     }
                 })
                 .sorted(Currency::compare)
-                .limit(5)
                 .collect(Collectors.toList());
     }
 }
