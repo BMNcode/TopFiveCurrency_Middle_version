@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.bmn.TopFiveCurrency_Middle_version.model.Currency;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,10 +15,10 @@ import java.util.Spliterators;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-@Component
+@Service
 public class ParseCurrencyTask {
 
-    @Scheduled(fixedDelay = 1000)
+    @Scheduled(fixedRate = 86400000)
     public List<Currency> topFiveChangeCurrency() {
         ObjectMapper mapper= new ObjectMapper();
         JsonNode rootNode = null;

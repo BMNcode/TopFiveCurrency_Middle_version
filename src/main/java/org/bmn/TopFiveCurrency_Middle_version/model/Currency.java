@@ -123,7 +123,7 @@ public class Currency{
     }
 
 
-    public static int compare(Currency o1, Currency o2) {
+    public static int compare(Currency o2, Currency o1) {
         return Double.compare(o2.value - o2.previous, o1.value - o1.previous);
     }
 }
